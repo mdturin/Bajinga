@@ -17,13 +17,14 @@ public class Order : BaseEntity
                  string buyerEmail,
                  Address shipToAddress,
                  DeliveryMethod deliveryMethod,
-                 double subtotal)
+                 double subtotal, string paymentIndentId)
     {
         BuyerEmail = buyerEmail;
         ShipToAddress = shipToAddress;
         DeliveryMethod = deliveryMethod;
         OrderItems = orderItems;
         Subtotal = subtotal;
+        PaymentIntentId = paymentIndentId;
     }
 
     public double GetTotal()
