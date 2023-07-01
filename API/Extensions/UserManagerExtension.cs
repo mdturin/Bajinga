@@ -14,4 +14,10 @@ public static class UserManagerExtension
             .Include(x => x.Address)
             .SingleOrDefaultAsync(x => x.Email == email);
     }
+
+    public static async Task<AppUser> FindByEmailFromClaimsPrincipal(this UserManager<AppUser> input, ClaimsPrincipal user)
+    {
+        var email = user.RetrieveEmailFromPrincipal();
+        return await input.Users.SingleOrDefaultAsync(x => x.Email == email);
+    }
 }
