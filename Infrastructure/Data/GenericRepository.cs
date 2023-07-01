@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
 
-public class GenericRespository<T> : IGenericRepository<T> where T : BaseEntity
+public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 {
     private readonly StoreContext _context;
-    public GenericRespository(StoreContext context) => _context = context;
+    public GenericRepository(StoreContext context) => _context = context;
 
     public void Add(T entity) => _context.Set<T>().Add(entity);
 

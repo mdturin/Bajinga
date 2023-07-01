@@ -19,7 +19,7 @@ public class UnitOfWork : IUnitOfWork
 
         if(!_repositories.ContainsKey(type))
         {
-            var repositoryType = typeof(GenericRespository<>);
+            var repositoryType = typeof(GenericRepository<>);
             var repositoryInstance = Activator.CreateInstance(
                 repositoryType.MakeGenericType(typeof(T)), _context);
             _repositories.Add(type, repositoryInstance!);
